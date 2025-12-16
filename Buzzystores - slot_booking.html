@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Buzzystores – Slot Booking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 640px;
+    }
+
+    .header {
+      background: #ffffff;
+      padding: 18px 24px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+      margin-bottom: 32px;
+    }
+
+    .logo {
+      font-size: 1.9rem;
+      font-weight: 800;
+    }
+
+    .logo span:first-child {
+      color: #06b6d4;
+    }
+
+    .logo span:last-child {
+      color: #111827;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 24px 28px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      margin-top: 0;
+      margin-bottom: 4px;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #6b7280;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    .date-row {
+      text-align: center;
+      margin-bottom: 16px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #111827;
+    }
+
+    .slots-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .slot {
+      padding: 10px 6px;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      text-align: center;
+      font-weight: 500;
+      cursor: pointer;
+      background: #f9fafb;
+      user-select: none;
+    }
+
+    .slot.selected {
+      background: #2563eb;
+      color: #ffffff;
+      border-color: #1d4ed8;
+    }
+
+    .slot:hover {
+      border-color: #2563eb;
+    }
+
+    .button-row {
+      text-align: center;
+    }
+
+    button {
+      padding: 11px 22px;
+      border-radius: 999px;
+      border: none;
+      background: #2563eb;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      min-width: 220px;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .info {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-top: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="logo">
+        <span>Buzzy</span><span>stores</span>
+      </div>
+    </header>
+
+    <main class="card">
+      <h1>Slot Booking</h1>
+      <div class="subtitle">
+        Choose a time for your in-store service or pickup.
+      </div>
+
+      <div class="date-row">
+        Wednesday, June 5
+      </div>
+
+      <div class="slots-grid" id="slots">
+        <div class="slot">10:00</div>
+        <div class="slot selected">11:00</div>
+        <div class="slot">13:00</div>
+        <div class="slot">14:00</div>
+        <div class="slot">15:00</div>
+        <div class="slot">16:00</div>
+      </div>
+
+      <div class="button-row">
+        <button type="button">Save slot</button>
+        <div class="info">
+          Demo only – clicking does not actually book a slot.
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Simple demo interaction: clicking a slot marks it as selected.
+    const slots = document.querySelectorAll(".slot");
+    slots.forEach(slot => {
+      slot.addEventListener("click", () => {
+        slots.forEach(s => s.classList.remove("selected"));
+        slot.classList.add("selected");
+      });
+    });
+  </script>
+</body>
+</html>
